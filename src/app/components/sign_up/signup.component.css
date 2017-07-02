@@ -1,0 +1,27 @@
+.btn-issuer, .btn-investor {
+    margin: 25px 5px 0px;
+    font-weight: 700;
+    padding: 15px 75px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background: #0aabe1;
+    border-radius: 2px;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -ms-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+}
+.btn-issuer:hover{
+    background: #E0E0E0;
+    color: #0aabe1;
+}
+.btn-investor:hover{
+    background: #E0E0E0;
+    color: #0aabe1;
+}
+.register {
+    margin-top:40px;
+}

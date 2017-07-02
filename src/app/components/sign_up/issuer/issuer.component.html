@@ -1,0 +1,134 @@
+<div class="container">
+    <h1 class="text-center">Registration Form</h1>
+    <div class="col-lg-12 well">
+        <div class="row">
+            <form #issuerSignup="ngForm" (ngSubmit)="onSubmit(issuerSignup.value)">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Tên tổ chức</label>
+                            <input type="text" placeholder="Nhập tên đầy đủ.." class="form-control" required autofocus name="fullname" #fullName="ngModel" ngModel>
+                            <div *ngIf="fullName.errors && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+                                <div [hidden]="!fullName.errors.required">
+                                    Name is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Tên tổ chức (viết tắt)</label>
+                            <input type="text" placeholder="Nhập tên viết tắt của tổ chức.." class="form-control" required name="shortname" #shortName="ngModel"
+                                ngModel>
+                            <div *ngIf="shortName.errors && (shortName.dirty || shortName.touched)" class="alert alert-danger">
+                                <div [hidden]="!shortName.errors.required">
+                                    Short name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Mã số thuế</label>
+                            <input type="text" placeholder="Nhập mã số thuế.." class="form-control" required name="taxcode" #taxCode="ngModel" ngModel>
+                            <div *ngIf="taxCode.errors && (taxCode.dirty || taxCode.touched)" class="alert alert-danger">
+                                <div [hidden]="!taxCode.errors.required">
+                                    Tax code is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" placeholder="Nhập địa chỉ .." class="form-control" required name="address" #address="ngModel" ngModel>
+                            <div *ngIf="address.errors && (address.dirty || address.touched)" class="alert alert-danger">
+                                <div [hidden]="!address.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Họ tên người liên hệ</label>
+                            <input type="text" placeholder="Nhập họ tên người liên hệ trực tiếp.." class="form-control" required name="contactperson" #contactPerson="ngModel"
+                                ngModel>
+                            <div *ngIf="contactPerson.errors && (contactPerson.dirty || contactPerson.touched)" class="alert alert-danger">
+                                <div [hidden]="!contactPerson.errors.required">
+                                    Address is required
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" placeholder="Nhập số điện thoại liên hệ.." class="form-control" required name="phone" #phone="ngModel" ngModel>
+                            <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+                                <div [hidden]="!phone.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Mật khẩu</label>
+                            <input type="text" placeholder="Mật khẩu hơn 8 kí tự.." class="form-control" required name="password" #passWord="ngModel" ngModel>
+                            <div *ngIf="passWord.errors && (passWord.dirty || passWord.touched)" class="alert alert-danger">
+                                <div [hidden]="!passWord.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Xác nhận mật khẩu</label>
+                            <input type="text" placeholder="Nhập lại mật khẩu.." class="form-control" required name="repassword" #rePassword="ngModel" ngModel>
+                            <div *ngIf="rePassword.errors && (rePassword.dirty || rePassword.touched)" class="alert alert-danger">
+                                <div [hidden]="!rePassword.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Email</label>
+                            <input type="text" placeholder="Nhập địa chỉ email.." class="form-control" required name="email" #email="ngModel" ngModel >
+                            <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                                <div [hidden]="!email.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Loại tổ chức phát hành</label>
+                            <select class="form-control input-sm" id="years" required name="issuertype" ngModel>
+                                    <option *ngFor="let issuerType of Types" [value]="issuerType.Id">{{issuerType.Name}}</option>
+                                    <!--<option>-- Chọn loại tổ chức --</option>
+                                    <option>Có chức năng quản lý Quỹ</option>
+                                    <option>Không có chức năng quản lý Quỹ</option>-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Website</label>
+                            <input type="text" placeholder="Nhập website của tổ chức.." class="form-control">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <div class="g-recaptcha" data-sitekey="6LcsTicUAAAAAJMO91h8AQBdt5R1TA9J2QudxxXk">
+                            </div>
+                        </div>
+
+                    </div>
+                    <label class="checkbox text-center">
+                            <input type="checkbox" value="remember-me">
+                            I Agree To The <a routerLink="#">Terms</a> and <a routerLink="#">Conditions</a>
+                        </label>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Sign up</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-md-offset-4 text-center">
+        <label class=c heckbox> Already have an account?<a routerLink="/signin"> Sign In</a></label>
+    </div>
+</div>

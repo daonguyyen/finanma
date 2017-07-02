@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center">Finama</h1>
+            <div class="account-wall">
+                <form #investorSignup="ngForm" (ngSubmit)="onSubmit(investorSignup.value)" class="form-signin">
+                    <div class="form-group">
+                        <input type="text" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Email" required
+                            autofocus name="email" #mail="ngModel" ngModel>
+                        <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="alert alert-danger">
+                            <div [hidden]="!mail.errors.required">
+                                Mail is required
+                            </div>
+                            <div [hidden]="!mail.errors.pattern">
+                                Mail is invalid.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" minlength="8" maxlength="32" placeholder="Password" required name="password"
+                            #password="ngModel" ngModel>
+                        <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+                            <div [hidden]="!password.errors.required">
+                                Password is required
+                            </div>
+                            <div [hidden]="!password.errors.minlength">
+                                Password must be at least 8 character.
+                            </div>
+                            <div [hidden]="!password.errors.maxlength">
+                                Password cannot has more than 32 character.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" minlength="8" maxlength="32" placeholder="Confirm Password" required name="repassword"
+                            #repassword="ngModel" ngModel>
+                        <div *ngIf="repassword.errors && (repassword.dirty || repassword.touched)" class="alert alert-danger">
+                            <div [hidden]="!repassword.errors.required">
+                                Password is required
+                            </div>
+                            <div [hidden]="!repassword.errors.minlength">
+                                Password must be at least 8 character.
+                            </div>
+                            <div [hidden]="!repassword.errors.maxlength">
+                                Password cannot has more than 32 character.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!--<div class="g-recaptcha" data-sitekey="6LcsTicUAAAAAJMO91h8AQBdt5R1TA9J2QudxxXk"></div>-->
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!investorSignup.valid">
+                    Sign Up</button>
+                    <label class="checkbox text-center">
+                        <input type="checkbox" value="remember-me"required name="checkedAgree" #checkedAgree="ngModel" ngModel>                  
+                        I Agree To The <a routerLink="#">Terms</a> and <a routerLink="#">Conditions</a>
+                        <div *ngIf="checkedAgree.errors && (checkedAgree.dirty || checkedAgree.touched)" class="alert alert-danger">
+                            <div [hidden]="!checkedAgree.errors.required">
+                                Please checked Term & Conditions
+                            </div>
+                        </div> 
+                    </label>
+                </form>
+            </div>
+            <!--<a href="#" class="text-center new-account">Forgot password? </a>-->
+        </div>
+        <div class="col-sm-6 col-md-4 col-md-offset-4 text-center">
+            <label class=c heckbox> Already have an account?<a routerLink="/signin"> Sign In</a></label>
+        </div>
+    </div>
+</div>
